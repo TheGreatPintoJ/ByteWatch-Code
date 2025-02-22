@@ -3,11 +3,11 @@
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
-  Serial.println(CS);
+  Serial.println(SS);
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  Serial.print(CS);
+  Serial.print(SPI_CLK);
   delay(1000);
 }

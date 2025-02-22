@@ -4,5 +4,5 @@
 #include "pins.h"
 
 void spisetup(){
-  SPI.begin(SCLK, MISO_pin, MOSI_pin, CS);
+  SPI.begin(SPI_CLK, SPI_MISO, SPI_MOSI, SS);
 }
