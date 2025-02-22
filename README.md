@@ -4,4 +4,4 @@ If you want the full release, go ![here](https://github.com/TheGreatPintoJ/DIYWa
 
 \### NOTHING IS GUARENTEED \###\
 Everything in this branch is still under development and a work in progress, so nothing is guarenteed to work or be functional in any way.\
-Do not create any issues or bug me about fixing anything in this branch, it will be closed and not resolved.
+I will likely not respond or pay any attention to issues on this branch, so don't waste your time.
