@@ -1,6 +1,9 @@
 #ifndef WIFI_H
 #define WIFI_H
 
-void connectWifi(String ssid, String password);
+bool FORCE_USE_HOTSPOT = false;
+
+void connectWifi();
+void connectNewWifi();
 
 #endif
