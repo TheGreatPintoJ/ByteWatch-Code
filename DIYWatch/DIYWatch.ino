@@ -1,5 +1,5 @@
 #include "pins.h"
-#include "wifi.h"
+#include "wifi_functs.h"
 
 void setup() {
   // put your setup code here, to run once:
