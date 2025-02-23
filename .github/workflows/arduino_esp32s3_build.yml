@@ -1,0 +1,64 @@
+name: Build and Release ESP32-S3 Firmware
+
+on:
+  push:
+    tags:
+      - "v*"  # Triggers when a tag like "v1.0.0" is pushed
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install Arduino CLI
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh
+          echo "$HOME/work/GitTests/GitTests/bin" >> $GITHUB_PATH
+          echo "export PATH=$HOME/work/GitTests/GitTests/bin:\$PATH" >> $HOME/.bashrc
+          source $HOME/.bashrc
+
+      - name: Install ESP32 Board Support
+        run: |
+          arduino-cli core update-index
+          arduino-cli core install esp32:esp32
+
+      - name: Compile Sketch
+        run: |
+          arduino-cli compile --fqbn esp32:esp32:esp32s3 ./DIYWatch --output-dir ./build
+
+      - name: Install ESPTool
+        run: pip install esptool
+        
+      - name: Initialize Arduino CLI Config
+        run: |
+          arduino-cli config init
+          arduino-cli config set directories.data ~/.arduino15
+          arduino-cli config set directories.downloads ~/.arduino15/staging
+          arduino-cli config set directories.user ~/.arduino15/sketchbook
+          arduino-cli config dump
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: firmware-bin
+          path: ./build/*.bin
+          
+      - name: Merge Binaries into Flashable File
+        run: |
+          mv ./build/DIYWatch.ino.bin ./build/DIYWatch-code_${{ github.ref_name }}.bin
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: Release ${{ github.ref_name }}
+          draft: false
+          prerelease: false
+          files: ./build/DIYWatch-code_${{ github.ref_name }}.bin
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
