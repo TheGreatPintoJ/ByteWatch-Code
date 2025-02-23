@@ -5,7 +5,7 @@
 #include <WiFi.h>
 #include <ESPmDNS.h>
 
-#include "wifi.h"
+#include "wifi_functs.h"
 #include "miscutils.h"
 
 #define HOSTNAME "WiFiTest"
