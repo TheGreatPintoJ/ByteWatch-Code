@@ -7,6 +7,7 @@
 
 #include "wifi_functs.h"
 #include "miscutils.h"
+#include "config.h"
 
 #define HOSTNAME "WiFiTest"
 
