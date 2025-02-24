@@ -22,9 +22,9 @@ void clockDisplay() {
     // Bluetooth Status
     if(test_bluetooth_on){
       if(test_bluetooth_connected){
-        tft.drawBitmap(22, 0, image_bluetooth_connected_bits, 14, 16, 0xFFFF);
+        tft.drawBitmap(22, 0, image_bluetooth_connected_bits, 14, 16, bluetooth_icon_color);
       } else {
-        tft.drawBitmap(22, 0, image_bluetooth_on_bits, 14, 16, 0xFFFF);
+        tft.drawBitmap(22, 0, image_bluetooth_on_bits, 14, 16, bluetooth_icon_color);
       }
     } else {
       tft.drawBitmap(22, 0, image_bluetooth_off_bits, 14, 15, 0x5AEC);
@@ -57,6 +57,7 @@ void clockDisplay() {
     } else {
       tft.drawBitmap(82, 0, image_volume_no_sound_bits, 15, 15, 0x5AEC);
     }
+
 
     // battery_charging
     tft.drawBitmap(103, 0, image_battery_charging_bits, 24, 15, 0xF685);

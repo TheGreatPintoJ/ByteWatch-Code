@@ -50,6 +50,7 @@ String test_date = "01/02/03";
 
 bool test_bluetooth_on = true;
 bool test_bluetooth_connected = true;
+uint16_t bluetooth_icon_color = 0x1104c2;
 
 int test_wifi_amnt = 79;
 bool test_wifi_on = true;
