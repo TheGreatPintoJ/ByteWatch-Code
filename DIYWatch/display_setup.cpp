@@ -1,3 +1,4 @@
+#include "esp32-hal-spi.h"
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1351.h>
 #include <SPI.h>
@@ -60,7 +61,32 @@ void clockDisplay() {
 
 
     // battery_charging
-    tft.drawBitmap(103, 0, image_battery_charging_bits, 24, 15, 0xF685);
+    if (test_battery_charging) {
+      tft.drawBitmap(103, 0, image_battery_charging_bits, 24, 15, 0xF685);
+    } else {
+      if (test_battery_lvl > 90) {
+        tft.drawBitmap(103, 0, image_battery_100_bits, 24, 15, 0x5702);
+      } else if (test_battery_lvl > 80) {
+        tft.drawBitmap(103, 0, image_battery_80_bits, 24, 15, 0x5702);
+      } else if (test_battery_lvl > 70) {
+        tft.drawBitmap(103, 0, image_battery_70_bits, 24, 15, 0x5702);
+      } else if (test_battery_lvl > 60) {
+        tft.drawBitmap(103, 0, image_battery_60_bits, 24, 15, 0xFFFF);
+      } else if (test_battery_lvl > 50) {
+        tft.drawBitmap(103, 0, image_battery_50_bits, 24, 15, 0xFFFF);
+      } else if (test_battery_lvl > 40) {
+        tft.drawBitmap(103, 0, image_battery_40_bits, 24, 15, 0xFFFF);
+      } else if (test_battery_lvl > 30) {
+        tft.drawBitmap(103, 0, image_battery_30_bits, 24, 15, 0xFFFF);
+      } else if (test_battery_lvl > 20) {
+        tft.drawBitmap(103, 0, image_battery_20_bits, 24, 15, 0xc73200);
+      } else if (test_battery_lvl > 10) {
+        tft.drawBitmap(103, 0, image_battery_10_bits, 24, 15, 0xc73200);
+      } else {
+        tft.drawBitmap(103, 0, image_battery_0_bits, 24, 15, 0xb50c00);
+      }
+    }
+
 
     // message_mail
     tft.drawBitmap(109, 111, image_message_mail_bits, 17, 14, 0xFFFF);
