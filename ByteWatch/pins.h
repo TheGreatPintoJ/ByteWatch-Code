@@ -1,0 +1,20 @@
+const int BMS_STAT = 6; // Batery Charging Status
+const int BTN1 = 9;
+const int BTN2 = 10;
+const int BTN3 = 11;
+const int BTN4 = 12;
+const int I2C_SDA = 13; // I2C Pins
+const int I2C_SCL = 14; // ^
+const int SPI_MOSI = 16; // }
+const int SPI_CLK = 17;  // } SPI Pins
+const int SPI_MISO = 18; // }
+const int D_N = 25; //USB Negative
+const int D_P = 26; //USB Positive
+const int SD_CS = 27; // MicroSD Chip Select (CS OR SS) pin
+const int LORA_CS = 38; // LORA Chip Select (CS OR SS) pin
+const int DIS_RST = 39; //}
+const int DIS_DC = 40;  //} Display Pins
+const int DIS_CS = 41;  //}
+const int VIB_PWR = 42; //Vibration motor positive
+const int BZR_PWR = 43; //Buzzer positive
+
