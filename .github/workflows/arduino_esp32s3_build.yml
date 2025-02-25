@@ -29,7 +29,7 @@ jobs:
 
       - name: Compile Sketch
         run: |
-          arduino-cli compile --fqbn esp32:esp32:esp32s3 ./DIYWatch --output-dir ./build
+          arduino-cli compile --fqbn esp32:esp32:esp32s3 ./ByteWatch --output-dir ./build
 
       - name: Install ESPTool
         run: pip install esptool
@@ -50,7 +50,7 @@ jobs:
           
       - name: Merge Binaries into Flashable File
         run: |
-          mv ./build/DIYWatch.ino.bin ./build/DIYWatch-code_${{ github.ref_name }}.bin
+          mv ./build/ByteWatch.ino.bin ./build/ByteWatch-code_${{ github.ref_name }}.bin
 
       - name: Create GitHub Release
         id: create_release
@@ -59,6 +59,6 @@ jobs:
           name: Release ${{ github.ref_name }}
           draft: false
           prerelease: false
-          files: ./build/DIYWatch-code_${{ github.ref_name }}.bin
+          files: ./build/ByteWatch-code_${{ github.ref_name }}.bin
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
