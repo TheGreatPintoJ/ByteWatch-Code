@@ -1,5 +1,4 @@
 # ByteWatch-Code
-=======
 \### THIS IS THE DEV BRANCH \###\
 If you want the full release, go [here](https://github.com/TheGreatPintoJ/DIYWatch-Code)
 
