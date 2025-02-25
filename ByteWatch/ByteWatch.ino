@@ -9,8 +9,6 @@
 
 void setup(){
   Serial.begin(9600);
-  xTaskCreatePinnedToCore(updateBatteryValue, "Update Battery Value", 2048, NULL, 1, &updateBatteryTask, 0);
-  xTaskCreatePinnedToCore(updateWifiValue, "Update Wifi Signal", 2048, NULL, 1, &updateWifiTask, 1);
 }
 
 void loop(){}
