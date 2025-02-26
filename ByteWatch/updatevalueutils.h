@@ -1,7 +1,7 @@
 #ifndef UPDATEVALUEUTILS_H
 #define UPDATEVALUEUTILS_H
 
-void updateBatteryValue(void *parameter);
-void updateWifiValue(void *parameter);
+void updateBatteryValue();
+void updateWifiValue();
 
 #endif
