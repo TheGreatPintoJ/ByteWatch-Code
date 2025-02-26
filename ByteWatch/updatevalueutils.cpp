@@ -1,5 +1,5 @@
 #include "updatevalueutils.h"
-#include "display_setup.h"
+//#include "display_setup.h"
 
 void updateBatteryValue(){
   while (true){
