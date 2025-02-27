@@ -16,7 +16,7 @@
 #define YELLOW          0xFFE0  
 #define WHITE           0xFFFF
 
-extern String test_hours
+extern String test_hours;
 extern String test_minutes;
 extern String test_seconds;
 extern String test_date;
