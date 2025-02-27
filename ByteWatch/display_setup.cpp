@@ -6,6 +6,25 @@
 
 #include "pins.h"
 #include "display_setup.h"
+#include "bitmap_images.h"
+
+String test_hours = "12";
+String test_minutes = "00";
+String test_seconds = "00";
+String test_date = "01/02/03";
+
+bool test_bluetooth_on = true;
+bool test_bluetooth_connected = true;
+uint16_t bluetooth_icon_color = 0x1104c2;
+
+int test_wifi_amnt = 79;
+bool test_wifi_on = true;
+
+int test_sound_vol = 53;
+bool test_sound_muted = false;
+
+int test_battery_lvl = 37;
+bool test_battery_charging = false;
 
 Adafruit_SSD1351 tft = Adafruit_SSD1351(SCREEN_WIDTH, SCREEN_HEIGHT, &SPI, DIS_CS, DIS_DC, DIS_RST);
 
